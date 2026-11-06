@@ -1,14 +1,10 @@
 package br.com.senai.exercicio01.model;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.List;
-
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Maquina")
-public class Maquina {
+@Table(name = "Maquinas")
+public class Maquinas{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
@@ -28,10 +24,9 @@ public class Maquina {
     private Status status;
 
     @OneToOne(mappedBy = "maquina")
-    @PrimaryKeyJoinColumn 
     private Dados dados;
 
-    public Maquina(){
+    public Maquinas(){
     }
 
     public Long getId(){
