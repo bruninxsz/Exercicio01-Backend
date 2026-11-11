@@ -1,6 +1,6 @@
 package br.com.senai.exercicio01.dto;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -13,9 +13,11 @@ public class DadosDTO {
     @NotNull(message = "O identificador da máquina é obrigatório")
     private Long maquinaId;
 
+    private Long id;
+
     private double consumoKw;
 
-    private LocalDateTime horarioAcionamento;
+    private LocalTime horarioAcionamento;
 
     private int pecasProduzidas;
 }

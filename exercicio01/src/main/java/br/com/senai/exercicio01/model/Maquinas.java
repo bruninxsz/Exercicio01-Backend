@@ -23,8 +23,8 @@ public class Maquinas{
     @Column(name="status", nullable=false)
     private Status status;
 
-    @OneToOne(mappedBy = "maquina")
-    private Dados dados;
+    @OneToMany(mappedBy = "maquina")
+    private java.util.List<Dados> dados = new java.util.ArrayList<>();
 
     public Maquinas(){
     }

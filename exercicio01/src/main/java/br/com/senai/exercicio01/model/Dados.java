@@ -1,6 +1,6 @@
 package br.com.senai.exercicio01.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import jakarta.persistence.*;
 
@@ -9,19 +9,18 @@ import jakarta.persistence.*;
 public class Dados {
 
     @Id
-    @Column(name = "maquinaId")
-    private Long maquinaId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name="maquinaId")
+    @ManyToOne(optional = false)
+    @JoinColumn(name="maquinaId", nullable = false)
     private Maquinas maquina;
 
     @Column(name="consumoKw")
     private double consumoKw;
 
     @Column(name="horarioAcionamento")
-    private LocalDateTime horarioAcionamento;
+    private LocalTime horarioAcionamento;
 
     @Column(name="pecasProduzidas")
     private int pecasProduzidas;
@@ -29,12 +28,12 @@ public class Dados {
     public Dados(){
     }
 
-    public Long getMaquinaId(){
-        return maquinaId;
+    public Long getId(){
+        return id;
     }
 
-    public void setMaquinaId(Long maquinaId){
-        this.maquinaId = maquinaId;
+    public void setId(Long id){
+        this.id = id;
     }
 
     public Maquinas getMaquina(){
@@ -53,11 +52,11 @@ public class Dados {
         this.consumoKw = consumoKw;
     }
 
-    public LocalDateTime getHorarioAcionamento(){
+    public LocalTime getHorarioAcionamento(){
         return horarioAcionamento;
     }
 
-    public void setHorarioAcionamento(LocalDateTime horarioAcionamento){
+    public void setHorarioAcionamento(LocalTime horarioAcionamento){
         this.horarioAcionamento = horarioAcionamento;
     }
 
